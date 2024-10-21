@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subject details</title>
+</head>
+<body>
+    <h1>Subject details</h1>
+    {% if subject %}
+    <ul>
+        <li>Name: {{ subject.name }}</li>
+        <li>Code: {{ subject.code }}</li>
+        <li>Description: {{ subject.description }}</li>
+
+        <li>Specialties:
+            <ul>
+                {% for speciality in subject.speciality.all %}
+                    <li>{{ speciality.name }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+
+        <li>Teachers:
+            <ul>
+                {% for teacher in subject.teacher.all %}
+                    <li>{{ teacher.first_name }} {{ teacher.last_name }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+
+    </ul>
+    {% else %}
+        <p>Subject not found.</p>
+    {% endif %}
+</body>
+</html>

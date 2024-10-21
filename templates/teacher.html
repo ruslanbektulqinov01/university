@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers</title>
+</head>
+<body>
+    <h1>Teachers</h1>
+    {% if teachers %}
+    {% for teacher in teachers %}
+    <ul>
+        <li>{{ teacher.first_name }}</li>
+    </ul>
+    {% endfor %}
+    {% else %}
+        <h3>No teachers</h3>
+    {% endif %}
+</body>
+</html>
